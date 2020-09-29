@@ -161,7 +161,7 @@
     
         <h4 class="name" id="~fnOrderHistorialPrivate">
             
-                <span class="type-signature"><span class="icon green">inner</span> </span>fnOrderHistorialPrivate<span class="signature">(code, store)</span><span class="type-signature"></span>
+                <span class="type-signature"><span class="icon green">inner</span> </span>fnOrderHistorialPrivate<span class="signature">(code, enterpriseKey)</span><span class="type-signature"></span>
                 
             
         </h4>
@@ -234,7 +234,7 @@
 
         <tr>
             
-                <td class="name"><code>store</code></td>
+                <td class="name"><code>enterpriseKey</code></td>
             
 
             <td class="type">
@@ -314,9 +314,9 @@
         
         <p class="code-caption">Envio de datos en formato cURL</p>
     
-    <pre class="prettyprint"><code>  curl --request GET 'https://us-central1-chazki-link.cloudfunctions.net/fnOrderHistorialPrivate?code=XXXXXXXXXXXXXXXX&amp;store=YYYYYYYYYYYYYYYYYYYYY'</code></pre>
+    <pre class="prettyprint"><code>  curl --request GET 'https://us-central1-chazki-link.cloudfunctions.net/fnOrderHistorialPrivate?code=XXXXXXXXXXXXXXXX&amp;enterpriseKey=YYYYYYYYYYYYYYYYYYYYY'</code></pre>
 
-        <p class="code-caption">Respuesta</p>
+        <p class="code-caption">Respuesta de la consulta</p>
     
     <pre class="prettyprint"><code>   {
      "response": 1,
@@ -365,6 +365,14 @@
      ]
    }</code></pre>
 
+        <p class="code-caption">Respuesta de la consulta con errores</p>
+    
+    <pre class="prettyprint"><code>   {
+     "response": 0,
+     "descriptionResponse": "El trackcode no existe o el enterpriseKey no es correcto",
+     "message": ""
+   }</code></pre>
+
     
 
 </dd>
@@ -376,7 +384,7 @@
     
         <h4 class="name" id="~fnOrderHistorialPublic">
             
-                <span class="type-signature"><span class="icon green">inner</span> </span>fnOrderHistorialPublic<span class="signature">(code, store)</span><span class="type-signature"></span>
+                <span class="type-signature"><span class="icon green">inner</span> </span>fnOrderHistorialPublic<span class="signature">(code, enterpriseKey)</span><span class="type-signature"></span>
                 
             
         </h4>
@@ -449,7 +457,7 @@
 
         <tr>
             
-                <td class="name"><code>store</code></td>
+                <td class="name"><code>enterpriseKey</code></td>
             
 
             <td class="type">
@@ -529,9 +537,9 @@
         
         <p class="code-caption">Envio de datos en formato cURL</p>
     
-    <pre class="prettyprint"><code>  curl --location --request GET 'https://us-central1-chazki-link.cloudfunctions.net/fnOrderHistorialPublic?code=XXXXXXXXXXXXXXXX&amp;store=YYYYYYYYYYYYYYYYYYYYY'</code></pre>
+    <pre class="prettyprint"><code>  curl --location --request GET 'https://us-central1-chazki-link.cloudfunctions.net/fnOrderHistorialPublic?code=XXXXXXXXXXXXXXXX&amp;enterpriseKey=YYYYYYYYYYYYYYYYYYYYY'</code></pre>
 
-        <p class="code-caption">Respuesta</p>
+        <p class="code-caption">Respuesta de la consulta</p>
     
     <pre class="prettyprint"><code>   {
      "response": 1,
@@ -553,6 +561,14 @@
      ]
    }</code></pre>
 
+        <p class="code-caption">Respuesta de la consulta con errores</p>
+    
+    <pre class="prettyprint"><code>   {
+     "response": 0,
+     "descriptionResponse": "El trackcode no existe o el enterpriseKey no es correcto",
+     "message": ""
+   }</code></pre>
+
     
 
 </dd>
@@ -564,7 +580,7 @@
     
         <h4 class="name" id="~fnOrderImages">
             
-                <span class="type-signature"><span class="icon green">inner</span> </span>fnOrderImages<span class="signature">(code, store)</span><span class="type-signature"></span>
+                <span class="type-signature"><span class="icon green">inner</span> </span>fnOrderImages<span class="signature">(code, enterpriseKey)</span><span class="type-signature"></span>
                 
             
         </h4>
@@ -637,7 +653,7 @@
 
         <tr>
             
-                <td class="name"><code>store</code></td>
+                <td class="name"><code>enterpriseKey</code></td>
             
 
             <td class="type">
@@ -717,9 +733,9 @@
         
         <p class="code-caption">Envio de datos en formato cURL</p>
     
-    <pre class="prettyprint"><code>  curl --request GET 'https://us-central1-chazki-link.cloudfunctions.net/fnOrderImages?code=XXXXXXXXXXXXXXXX&amp;store=YYYYYYYYYYYYYYYYYYYYY'</code></pre>
+    <pre class="prettyprint"><code>  curl --request GET 'https://us-central1-chazki-link.cloudfunctions.net/fnOrderImages?code=XXXXXXXXXXXXXXXX&amp;enterpriseKey=YYYYYYYYYYYYYYYYYYYYY'</code></pre>
 
-        <p class="code-caption">Respuesta</p>
+        <p class="code-caption">Respuesta de la consulta</p>
     
     <pre class="prettyprint"><code>  {
     "response": 1,
@@ -728,6 +744,13 @@
       "image:content",
       "iVBORw0KGgoAAAANSUhEUgAAAl8AAAQ4CAIAAAC4"
     ]
+  }</code></pre>
+
+        <p class="code-caption">Respuesta de la consulta con errores</p>
+    
+    <pre class="prettyprint"><code>  {
+    "response": 0,
+    "deliveryResponse": "No se encuentra el trackCode o el codigo de empresa"
   }</code></pre>
 
     
@@ -741,7 +764,7 @@
     
         <h4 class="name" id="~fnTrackOrderChazkiPosition">
             
-                <span class="type-signature"><span class="icon green">inner</span> </span>fnTrackOrderChazkiPosition<span class="signature">(code, store)</span><span class="type-signature"></span>
+                <span class="type-signature"><span class="icon green">inner</span> </span>fnTrackOrderChazkiPosition<span class="signature">(code, enterpriseKey)</span><span class="type-signature"></span>
                 
             
         </h4>
@@ -814,7 +837,7 @@
 
         <tr>
             
-                <td class="name"><code>store</code></td>
+                <td class="name"><code>enterpriseKey</code></td>
             
 
             <td class="type">
@@ -894,18 +917,27 @@
         
         <p class="code-caption">Envio de datos en formato cURL</p>
     
-    <pre class="prettyprint"><code>  curl --request GET 'https://us-central1-chazki-link.cloudfunctions.net/fnTrackOrderChazkiPosition?code=XXXXXXXXX&amp;store=YYYYYYYYYYYYYYY'</code></pre>
+    <pre class="prettyprint"><code>  curl --request GET 'https://us-central1-chazki-link.cloudfunctions.net/fnTrackOrderChazkiPosition?code=XXXXXXXXX&amp;enterpriseKey=YYYYYYYYYYYYYYY'</code></pre>
 
-        <p class="code-caption">Respuesta</p>
+        <p class="code-caption">Respuesta de la consulta</p>
     
     <pre class="prettyprint"><code>  {
-      "position": {
-          "latitude": -12.046502,
-          "longitude": -77.042716
-      },
-      "status": "ASSIGNED",
-      "timestamp": "2020-04-30T00:00:00.000Z",
-      "rd": "Repartidor"
+    "response": 1,
+    "position": {
+      "latitude": -12.046502,
+      "longitude": -77.042716
+    },
+    "status": "ASSIGNED",
+    "timestamp": "2020-04-30T00:00:00.000Z",
+    "rd": "Nombre repartidor"
+  }</code></pre>
+
+        <p class="code-caption">Respuesta de la consulta con errores</p>
+    
+    <pre class="prettyprint"><code>  {
+    "response": 0,
+    "descriptionResponse": "El trackcode no existe o el enterpriseKey no es correcto",
+    "message": ""
   }</code></pre>
 
     
