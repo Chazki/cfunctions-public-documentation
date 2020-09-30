@@ -217,11 +217,15 @@ ul, ol, li {list-style:none; padding-left:0; margin-left:0;}
     border: 0;
     padding: 1px 3px;
 }
-.main section article table td.name,
+.main section article table td.name{
+    max-width: 300px;
+    min-width: 80px;
+    word-break: break-all;
+}
 .main section article table td.type,
 .main section article table td.attributes,
 .main section article table td.default {
-    max-width: 100px;
+    max-width: 120px;
     min-width: 80px;
     word-break: break-all;
 }

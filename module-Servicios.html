@@ -32,7 +32,7 @@
         <ul></ul>
     </div>
     
-    <div class="lnb-api hidden"><h3>Modules</h3><ul><li><a href="module-Servicios.html">Servicios</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:Servicios_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="module-Servicios.html#~fnOrderHistorialPrivate">fnOrderHistorialPrivate</a></li><li><a href="module-Servicios.html#~fnOrderHistorialPublic">fnOrderHistorialPublic</a></li><li><a href="module-Servicios.html#~fnOrderImages">fnOrderImages</a></li><li><a href="module-Servicios.html#~fnTrackOrderChazkiPosition">fnTrackOrderChazkiPosition</a></li><li><a href="module-Servicios.html#~uploadClientOrders">uploadClientOrders</a></li></ul></div></li></ul></div>
+    <div class="lnb-api hidden"><h3>Modules</h3><ul><li><a href="module-Servicios.html">Servicios</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:Servicios_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="module-Servicios.html#~uploadClientOrders">uploadClientOrders</a></li><li><a href="module-Servicios.html#~fnTrackOrderChazkiPosition">fnTrackOrderChazkiPosition</a></li><li><a href="module-Servicios.html#~fnOrderHistorialPublic">fnOrderHistorialPublic</a></li><li><a href="module-Servicios.html#~fnOrderHistorialPrivate">fnOrderHistorialPrivate</a></li><li><a href="module-Servicios.html#~fnOrderImages">fnOrderImages</a></li></ul></div></li></ul></div>
 </nav>
 <div id="resizer"></div>
 
@@ -159,9 +159,1857 @@
 
 <dt>
     
+        <h4 class="name" id="~uploadClientOrders">
+            
+                uploadClientOrders<span class="signature">(enterpriseKey, orders)</span><span class="type-signature"> &rarr; {Response}</span>
+                
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Este endpoint permite registrar un delivery. Dado que en el los datos se puegen agrupar en un arreglo, se pueden registrar varios deliveries</p>
+<p>Los datos deben de ser enviados en el protocolo POST y en formato del body request en JSON.</p>
+<p>URL: https://us-central1-chazki-link.cloudfunctions.net/uploadClientOrders</p>
+<p>Nota: La estructura de los objetos del array &quot;orders&quot; es igual a la proporcionada en el esquema para la carga CSV. Puede que el siguiente listado de parametros tenga mas o menos campos. En todo caso, utilize los campos del esquema CSV.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>enterpriseKey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Codigo unico de autorizacion que identifica al cliente.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>orders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array de objetos con la informacion de las ordenes que se quieren crear para el cliente.</p>
+                <h6>Properties</h6>
+                
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>CANTIDAD DEL PAQUETE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Cantidad de paquetes de la orden.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODIGO ALMACEN ENTREGA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Codigo del almacen a entregar.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODIGO ALMACEN RECOLECCION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Codigo del almacen a recolectar los paquetes.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODIGO POSTAL ENTREGA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Codigo postal de la direccion a recolectar.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODIGO POSTAL RECOLECCION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Codigo postal de la direccion a recolectar.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CROSSDOCKING</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Campo que indica si la orden es crossdocking. Puede tomar los valores de &quot;SI&quot; o &quot;NO&quot;.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>DESCRIPCION DEL PRODUCTO</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Descripcion de los productos.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>DIRECCION ENTREGA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Direccion de entrega del cliente final.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>DIRECCION RECOLECCION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Direccion del cliente.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>DOCUMENTO DE PAGO</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Documento de pago, puede tomar los valores FACTURA, BOLETA y GUIA.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>EMAIL ENTREGA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Email para notificaciones de la entrega.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>EMAIL RECOLECCION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Email para notificaciones de recoleccion.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ENVOLTURA DEL PAQUETE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Tipo de envoltura del paquete.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>LOGISTICA INVERSA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Puede tomar los valores de &quot;SI&quot; o &quot;NO&quot;.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>METODO DE PAGO</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Metodo de pago de la orden, puede tomar los valores de PAGADO, COD ,CCOD.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>MOVIL CONTACTO ENTREGA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Numero telefonico de la persona de contacto de la entrega.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>MOVIL CONTACTO RECOLECCION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Numero telefonico de la persona de contacto de la recoleccion.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NIVEL3 ENTREGA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Provincia de la direccion del cliente final.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NIVEL3 RECOLECCION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Provincia de la direccion del cliente.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NIVEL4 ENTREGA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Distrito de la direccion del cliente final.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NIVEL4 RECOLECCION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Distrito de la direccion del cliente.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NOMBRE CONTACTO ENTREGA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Nombres de la persona de contacto para la entrega.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NOMBRE CONTACTO RECOLECCION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Nombres de la persona de contacto para la recoleccion.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NOTAS ENTREGA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Notas para la entrega del paquete.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NOTAS RECOLECCION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Notas para la recoleccion del paquete.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NUMERO DOCUMENTO IDENTIDAD ENTREGA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Numero del documento de identidad de la persona de contacto para la entrega.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NUMERO DOCUMENTO IDENTIDAD RECOLECCION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Numero del documento de identidad de la persona de contacto para la recoleccion.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PESO DEL PAQUETE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Int</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Peso del paquete.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PRECIO DEL PRODUCTO</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Float</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Precio aproximado del producto.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>REFERENCIA ENTREGA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Referencias de la direccion del cliente final.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>REFERENCIA RECOLECCION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Referencias de la direccion del cliente.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SERVICIO</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Codigo del servicio. Puede tomar los valores de &quot;REGULAR&quot;, &quot;EXPRESS&quot; O &quot;PROGRAMADO&quot;, dependiendo del tipo de servicio deseado.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TAMAÑO DEL PAQUETE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Unidad de medida del pedido (XS, S, M, L)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TIPO DOCUMENTO IDENTIDAD ENTREGA</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Tipo de documento de la persona de contacto para la entrega. Puede tomar valores de  &quot;DNI&quot;, &quot;PAS&quot;, &quot;PTP&quot;, &quot;CR&quot; y &quot;CE&quot;.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TIPO DOCUMENTO IDENTIDAD RECOLECCION</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Tipo de documento de la persona de contacto para la recoleccion. Puede tomar valores de  &quot;DNI&quot;, &quot;PAS&quot;, &quot;PTP&quot;, &quot;CR&quot; y &quot;CE&quot;.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>TRACK CODE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Codigo de la orden.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Throws:</h5>
+    
+            
+
+    <div class="param-desc">
+    
+        <p>Si no se proporciona el enterpriseKey o el nombre correcto de las etiquetas, los pedidos no seran creados.</p>
+    
+    </div>
+
+
+        
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Response</span>
+
+
+
+
+
+- <p>Objeto de respuesta con el estado de la creacion de las ordenes.</p>
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+        <h5>Examples</h5>
+        
+        <p class="code-caption">Parametros enviados en el body del request en formato JSON</p>
+    
+    <pre class="prettyprint"><code> {
+   "enterpriseKey": "XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+   "orders": [
+     {
+       "TRACK CODE": "ABCDEFI",
+       "METODO DE PAGO": "PAGADO",
+       "DOCUMENTO DE PAGO": "BOLETA",
+       "SERVICIO": "REGULAR",
+       "ENVOLTURA DEL PAQUETE": "Caja",
+       "PESO DEL PAQUETE": 1,
+       "TAMAÑO DEL PAQUETE": "XL",
+       "CANTIDAD DEL PAQUETE": 1,
+       "DESCRIPCION DEL PRODUCTO": "xxxxxxxxxxx",
+       "PRECIO DEL PRODUCTO": 0,
+       "LOGISTICA INVERSA": "NO",
+       "CROSSDOCKING": "NO",
+       "CODIGO ALMACEN RECOLECCION": "",
+       "DIRECCION RECOLECCION": "xxxxxxxxxxxxxxx",
+       "CODIGO POSTAL RECOLECCION": "000000",
+       "REFERENCIA RECOLECCION": "-",
+       "NIVEL4 RECOLECCION": "Distrito",
+       "NIVEL3 RECOLECCION": "Departamento",
+       "NOTAS RECOLECCION": "",
+       "NOMBRE CONTACTO RECOLECCION": "xxxxx yyyyy",
+       "MOVIL CONTACTO RECOLECCION": "12345678",
+       "TIPO DOCUMENTO IDENTIDAD RECOLECCION": "RUC",
+       "NUMERO DOCUMENTO IDENTIDAD RECOLECCION": "12345678",
+       "EMAIL RECOLECCION": "xxxxxx@yyyyy.zzz",
+       "CODIGO ALMACEN ENTREGA": "",
+       "DIRECCION ENTREGA": "Direccion",
+       "CODIGO POSTAL ENTREGA": "000000",
+       "REFERENCIA ENTREGA": "Referencia",
+       "NIVEL4 ENTREGA": "Distrito",
+       "NIVEL3 ENTREGA": "Departamento",
+       "NOTAS ENTREGA": "Notas",
+       "NOMBRE CONTACTO ENTREGA": "CONTACTO",
+       "MOVIL CONTACTO ENTREGA": "12345678 - 12345678",
+       "TIPO DOCUMENTO IDENTIDAD ENTREGA": "DNI",
+       "NUMERO DOCUMENTO IDENTIDAD ENTREGA": "12345678",
+       "EMAIL ENTREGA": "xxxxxx@yyyyy.zzz"
+     }
+   ]
+ }</code></pre>
+
+        <p class="code-caption">Respuesta</p>
+    
+    <pre class="prettyprint"><code> {
+     "success": true,
+     "ordersWithErrors": 0,
+     "ordersWithoutErrors": 1
+ }</code></pre>
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="~fnTrackOrderChazkiPosition">
+            
+                fnTrackOrderChazkiPosition<span class="signature">(code, enterpriseKey)</span><span class="type-signature"></span>
+                
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Esta API nos permite ver el movimiento del Chazki y el estado en que se encuentra el delivery.</p>
+<p>Los datos deben de ser enviados en el protocolo GET.</p>
+<p>URL: https://us-central1-chazki-link.cloudfunctions.net/fnTrackOrderChazkiPosition</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Código track del delivery</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>enterpriseKey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Codigo unico de autorizacion que identifica al cliente.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+        <h5>Examples</h5>
+        
+        <p class="code-caption">Envio de datos en formato cURL</p>
+    
+    <pre class="prettyprint"><code>  curl --request GET 'https://us-central1-chazki-link.cloudfunctions.net/fnTrackOrderChazkiPosition?code=XXXXXXXXX&amp;enterpriseKey=YYYYYYYYYYYYYYY'</code></pre>
+
+        <p class="code-caption">Respuesta de la consulta</p>
+    
+    <pre class="prettyprint"><code>  {
+    "response": 1,
+    "position": {
+      "latitude": -12.046502,
+      "longitude": -77.042716
+    },
+    "status": "ASSIGNED",
+    "timestamp": "2020-04-30T00:00:00.000Z",
+    "rd": "Nombre repartidor"
+  }</code></pre>
+
+        <p class="code-caption">Respuesta de la consulta con errores</p>
+    
+    <pre class="prettyprint"><code>  {
+    "response": 0,
+    "descriptionResponse": "El trackcode no existe o el enterpriseKey no es correcto",
+    "message": ""
+  }</code></pre>
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="~fnOrderHistorialPublic">
+            
+                fnOrderHistorialPublic<span class="signature">(code, enterpriseKey)</span><span class="type-signature"></span>
+                
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Esta API nos permite ver los estados por los que paso el delivery agrupados por servicios. La agrupación de servicios hace referencia a los intentos que se realizó para la entrega del delivery.</p>
+<p>Los datos deben de ser enviados en el protocolo GET.</p>
+<p>URL: https://us-central1-chazki-link.cloudfunctions.net/fnOrderHistorialPublic</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Código track del delivery</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>enterpriseKey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Codigo unico de autorizacion que identifica al cliente.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+        <h5>Examples</h5>
+        
+        <p class="code-caption">Envio de datos en formato cURL</p>
+    
+    <pre class="prettyprint"><code>  curl --location --request GET 'https://us-central1-chazki-link.cloudfunctions.net/fnOrderHistorialPublic?code=XXXXXXXXXXXXXXXX&amp;enterpriseKey=YYYYYYYYYYYYYYYYYYYYY'</code></pre>
+
+        <p class="code-caption">Respuesta de la consulta</p>
+    
+    <pre class="prettyprint"><code>   {
+     "response": 1,
+     "descriptionResponse": "SUCCESS",
+     "message": "",
+     "Service": [
+       [
+         {
+           "status": "NEW",
+           "date": "2020-09-28T15:49:43.181Z",
+           "reason": ""
+         },
+         {
+           "status": "ASSIGNED",
+           "date": "2020-09-28T22:08:48.193Z",
+           "reason": ""
+         }
+       ]
+     ]
+   }</code></pre>
+
+        <p class="code-caption">Respuesta de la consulta con errores</p>
+    
+    <pre class="prettyprint"><code>   {
+     "response": 0,
+     "descriptionResponse": "El trackcode no existe o el enterpriseKey no es correcto",
+     "message": ""
+   }</code></pre>
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
         <h4 class="name" id="~fnOrderHistorialPrivate">
             
-                <span class="type-signature"><span class="icon green">inner</span> </span>fnOrderHistorialPrivate<span class="signature">(code, enterpriseKey)</span><span class="type-signature"></span>
+                fnOrderHistorialPrivate<span class="signature">(code, enterpriseKey)</span><span class="type-signature"></span>
                 
             
         </h4>
@@ -382,205 +2230,9 @@
 
 <dt>
     
-        <h4 class="name" id="~fnOrderHistorialPublic">
-            
-                <span class="type-signature"><span class="icon green">inner</span> </span>fnOrderHistorialPublic<span class="signature">(code, enterpriseKey)</span><span class="type-signature"></span>
-                
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Esta API nos permite ver los estados por los que paso el delivery agrupados por servicios. La agrupación de servicios hace referencia a los intentos que se realizó para la entrega del delivery.</p>
-<p>Los datos deben de ser enviados en el protocolo GET.</p>
-<p>URL: https://us-central1-chazki-link.cloudfunctions.net/fnOrderHistorialPublic</p>
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>code</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Código track del delivery</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>enterpriseKey</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Codigo unico de autorizacion que identifica al cliente.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-        <h5>Examples</h5>
-        
-        <p class="code-caption">Envio de datos en formato cURL</p>
-    
-    <pre class="prettyprint"><code>  curl --location --request GET 'https://us-central1-chazki-link.cloudfunctions.net/fnOrderHistorialPublic?code=XXXXXXXXXXXXXXXX&amp;enterpriseKey=YYYYYYYYYYYYYYYYYYYYY'</code></pre>
-
-        <p class="code-caption">Respuesta de la consulta</p>
-    
-    <pre class="prettyprint"><code>   {
-     "response": 1,
-     "descriptionResponse": "SUCCESS",
-     "message": "",
-     "Service": [
-       [
-         {
-           "status": "NEW",
-           "date": "2020-09-28T15:49:43.181Z",
-           "reason": ""
-         },
-         {
-           "status": "ASSIGNED",
-           "date": "2020-09-28T22:08:48.193Z",
-           "reason": ""
-         }
-       ]
-     ]
-   }</code></pre>
-
-        <p class="code-caption">Respuesta de la consulta con errores</p>
-    
-    <pre class="prettyprint"><code>   {
-     "response": 0,
-     "descriptionResponse": "El trackcode no existe o el enterpriseKey no es correcto",
-     "message": ""
-   }</code></pre>
-
-    
-
-</dd>
-
-            
-                
-
-<dt>
-    
         <h4 class="name" id="~fnOrderImages">
             
-                <span class="type-signature"><span class="icon green">inner</span> </span>fnOrderImages<span class="signature">(code, enterpriseKey)</span><span class="type-signature"></span>
+                fnOrderImages<span class="signature">(code, enterpriseKey)</span><span class="type-signature"></span>
                 
             
         </h4>
@@ -752,1658 +2404,6 @@
     "response": 0,
     "deliveryResponse": "No se encuentra el trackCode o el codigo de empresa"
   }</code></pre>
-
-    
-
-</dd>
-
-            
-                
-
-<dt>
-    
-        <h4 class="name" id="~fnTrackOrderChazkiPosition">
-            
-                <span class="type-signature"><span class="icon green">inner</span> </span>fnTrackOrderChazkiPosition<span class="signature">(code, enterpriseKey)</span><span class="type-signature"></span>
-                
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Esta API nos permite ver el movimiento del Chazki y el estado en que se encuentra el delivery.</p>
-<p>Los datos deben de ser enviados en el protocolo GET.</p>
-<p>URL: https://us-central1-chazki-link.cloudfunctions.net/fnTrackOrderChazkiPosition</p>
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>code</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Código track del delivery</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>enterpriseKey</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Codigo unico de autorizacion que identifica al cliente.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-        <h5>Examples</h5>
-        
-        <p class="code-caption">Envio de datos en formato cURL</p>
-    
-    <pre class="prettyprint"><code>  curl --request GET 'https://us-central1-chazki-link.cloudfunctions.net/fnTrackOrderChazkiPosition?code=XXXXXXXXX&amp;enterpriseKey=YYYYYYYYYYYYYYY'</code></pre>
-
-        <p class="code-caption">Respuesta de la consulta</p>
-    
-    <pre class="prettyprint"><code>  {
-    "response": 1,
-    "position": {
-      "latitude": -12.046502,
-      "longitude": -77.042716
-    },
-    "status": "ASSIGNED",
-    "timestamp": "2020-04-30T00:00:00.000Z",
-    "rd": "Nombre repartidor"
-  }</code></pre>
-
-        <p class="code-caption">Respuesta de la consulta con errores</p>
-    
-    <pre class="prettyprint"><code>  {
-    "response": 0,
-    "descriptionResponse": "El trackcode no existe o el enterpriseKey no es correcto",
-    "message": ""
-  }</code></pre>
-
-    
-
-</dd>
-
-            
-                
-
-<dt>
-    
-        <h4 class="name" id="~uploadClientOrders">
-            
-                <span class="type-signature"><span class="icon green">inner</span> </span>uploadClientOrders<span class="signature">(enterpriseKey, orders)</span><span class="type-signature"> &rarr; {Response}</span>
-                
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Este endpoint permite registrar un delivery. Dado que en el los datos se puegen agrupar en un arreglo, se pueden registrar varios deliveries</p>
-<p>Los datos deben de ser enviados en el protocolo POST y en formato del body request en JSON.</p>
-<p>URL: https://us-central1-chazki-link.cloudfunctions.net/uploadClientOrders</p>
-<p>Nota: La estructura de los objetos del array &quot;orders&quot; es igual a la proporcionada en el esquema para la carga CSV. Puede que el siguiente listado de parametros tenga mas o menos campos. En todo caso, utilize los campos del esquema CSV.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>enterpriseKey</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Codigo unico de autorizacion que identifica al cliente.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>orders</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;Object></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Array de objetos con la informacion de las ordenes que se quieren crear para el cliente.</p>
-                <h6>Properties</h6>
-                
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>TRACK CODE</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Codigo de la orden.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>METODO DE PAGO</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Metodo de pago de la orden, puede tomar los valores de PAGADO, COD ,CCOD.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>DOCUMENTO DE PAGO</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Documento de pago, puede tomar los valores FACTURA, BOLETA y GUIA.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>SERVICIO</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Codigo del servicio. Puede tomar los valores de &quot;REGULAR&quot;, &quot;EXPRESS&quot; O &quot;PROGRAMADO&quot;, dependiendo del tipo de servicio deseado.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>ENVOLTURA DEL PAQUETE</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Tipo de envoltura del paquete.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>PESO DEL PAQUETE</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Int</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Peso del paquete.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>TAMAÑO DEL PAQUETE</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Unidad de medida del pedido (XS, S, M, L)	.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>CANTIDAD DEL PAQUETE</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Cantidad de paquetes de la orden.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>DESCRIPCION DEL PRODUCTO</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Descripcion de los productos.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>PRECIO DEL PRODUCTO</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Float</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Precio aproximado del producto.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>LOGISTICA INVERSA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Puede tomar los valores de &quot;SI&quot; o &quot;NO&quot;.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>CROSSDOCKING</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Campo que indica si la orden es crossdocking. Puede tomar los valores de &quot;SI&quot; o &quot;NO&quot;.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>CODIGO ALMACEN RECOLECCION</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Codigo del almacen a recolectar los paquetes.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>DIRECCION RECOLECCION</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Direccion del cliente.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>CODIGO POSTAL RECOLECCION</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Codigo postal de la direccion a recolectar.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>REFERENCIA RECOLECCION</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Referencias de la direccion del cliente.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>NIVEL4 RECOLECCION</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Distrito de la direccion del cliente.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>NIVEL3 RECOLECCION</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Provincia de la direccion del cliente.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>NOTAS RECOLECCION</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Notas para la recoleccion del paquete.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>NOMBRE CONTACTO RECOLECCION</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Nombres de la persona de contacto para la recoleccion.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>MOVIL CONTACTO RECOLECCION</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Numero telefonico de la persona de contacto de la recoleccion.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>TIPO DOCUMENTO IDENTIDAD RECOLECCION</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Tipo de documento de la persona de contacto para la recoleccion. Puede tomar valores de  &quot;DNI&quot;, &quot;PAS&quot;, &quot;PTP&quot;, &quot;CR&quot; y &quot;CE&quot;.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>NUMERO DOCUMENTO IDENTIDAD RECOLECCION</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Numero del documento de identidad de la persona de contacto para la recoleccion.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>EMAIL RECOLECCION</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Email para notificaciones de recoleccion.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>CODIGO ALMACEN ENTREGA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Codigo del almacen a entregar.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>DIRECCION ENTREGA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Direccion de entrega del cliente final.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>CODIGO POSTAL ENTREGA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Codigo postal de la direccion a recolectar.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>REFERENCIA ENTREGA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Referencias de la direccion del cliente final.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>NIVEL4 ENTREGA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Distrito de la direccion del cliente final.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>NIVEL3 ENTREGA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Provincia de la direccion del cliente final.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>NOTAS ENTREGA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Notas para la entrega del paquete.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>NOMBRE CONTACTO ENTREGA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Nombres de la persona de contacto para la entrega.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>MOVIL CONTACTO ENTREGA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Numero telefonico de la persona de contacto de la entrega.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>TIPO DOCUMENTO IDENTIDAD ENTREGA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Tipo de documento de la persona de contacto para la entrega. Puede tomar valores de  &quot;DNI&quot;, &quot;PAS&quot;, &quot;PTP&quot;, &quot;CR&quot; y &quot;CE&quot;.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>NUMERO DOCUMENTO IDENTIDAD ENTREGA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Numero del documento de identidad de la persona de contacto para la entrega.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>EMAIL ENTREGA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Email para notificaciones de la entrega.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Throws:</h5>
-    
-            
-
-    <div class="param-desc">
-    
-        <p>Si no se proporciona el enterpriseKey o el nombre correcto de las etiquetas, los pedidos no seran creados.</p>
-    
-    </div>
-
-
-        
-
-    
-    <div class="container-returns">
-        <h5>Returns:</h5>
-        
-                
-
-
-
-<span class="param-type">Response</span>
-
-
-
-
-
-- <p>Objeto de respuesta con el estado de la creacion de las ordenes.</p>
-
-
-
-
-            
-    </div>
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-        <h5>Examples</h5>
-        
-        <p class="code-caption">Parametros enviados en el body del request en formato JSON</p>
-    
-    <pre class="prettyprint"><code> {
-   "enterpriseKey": "XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-   "orders": [
-     {
-       "TRACK CODE": "ABCDEFI",
-       "METODO DE PAGO": "PAGADO",
-       "DOCUMENTO DE PAGO": "BOLETA",
-       "SERVICIO": "REGULAR",
-       "ENVOLTURA DEL PAQUETE": "Caja",
-       "PESO DEL PAQUETE": 1,
-       "TAMAÑO DEL PAQUETE": "XL",
-       "CANTIDAD DEL PAQUETE": 1,
-       "DESCRIPCION DEL PRODUCTO": "xxxxxxxxxxx",
-       "PRECIO DEL PRODUCTO": 0,
-       "LOGISTICA INVERSA": "NO",
-       "CROSSDOCKING": "NO",
-       "CODIGO ALMACEN RECOLECCION": "",
-       "DIRECCION RECOLECCION": "xxxxxxxxxxxxxxx",
-       "CODIGO POSTAL RECOLECCION": "000000",
-       "REFERENCIA RECOLECCION": "-",
-       "NIVEL4 RECOLECCION": "Distrito",
-       "NIVEL3 RECOLECCION": "Departamento",
-       "NOTAS RECOLECCION": "",
-       "NOMBRE CONTACTO RECOLECCION": "xxxxx yyyyy",
-       "MOVIL CONTACTO RECOLECCION": "12345678",
-       "TIPO DOCUMENTO IDENTIDAD RECOLECCION": "RUC",
-       "NUMERO DOCUMENTO IDENTIDAD RECOLECCION": "12345678",
-       "EMAIL RECOLECCION": "xxxxxx@yyyyy.zzz",
-       "CODIGO ALMACEN ENTREGA": "",
-       "DIRECCION ENTREGA": "Direccion",
-       "CODIGO POSTAL ENTREGA": "000000",
-       "REFERENCIA ENTREGA": "Referencia",
-       "NIVEL4 ENTREGA": "Distrito",
-       "NIVEL3 ENTREGA": "Departamento",
-       "NOTAS ENTREGA": "Notas",
-       "NOMBRE CONTACTO ENTREGA": "CONTACTO",
-       "MOVIL CONTACTO ENTREGA": "12345678 - 12345678",
-       "TIPO DOCUMENTO IDENTIDAD ENTREGA": "DNI",
-       "NUMERO DOCUMENTO IDENTIDAD ENTREGA": "12345678",
-       "EMAIL ENTREGA": "xxxxxx@yyyyy.zzz"
-     }
-   ]
- }</code></pre>
-
-        <p class="code-caption">Respuesta</p>
-    
-    <pre class="prettyprint"><code> {
-     "success": true,
-     "ordersWithErrors": 0,
-     "ordersWithoutErrors": 1
- }</code></pre>
 
     
 
